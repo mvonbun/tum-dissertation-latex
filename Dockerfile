@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER Andre Richter <andre.richter@tum.de>
+MAINTAINER Michael Vonbun <michael.vonbun@tum.de>
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG BUILD_DATE
@@ -22,6 +22,7 @@ RUN set -x;                                       \
         latexmk                                   \
         inkscape                                  \
         ;                                         \
+    tlmgr update pgf				  \
     apt-get autoremove -q -y;                     \
     apt-get clean -q -y;                          \
     rm -rf /var/lib/apt/lists/*
