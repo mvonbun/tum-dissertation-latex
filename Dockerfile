@@ -21,8 +21,13 @@ RUN set -x;                                       \
         texlive-science                           \
         latexmk                                   \
         inkscape                                  \
+	wget                                      \
+	xzdec                                     \
         ;                                         \
-    tlmgr update pgf;				  \
+    tlmgr init-usertree;                          \
+    tlmgr update pgf;                             \
+    tlmgr update xcolor;                          \
+    tlmgr update pgfplots                         \
     apt-get autoremove -q -y;                     \
     apt-get clean -q -y;                          \
     rm -rf /var/lib/apt/lists/*
