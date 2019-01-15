@@ -12,7 +12,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE                                   
 
 RUN set -x;                                         \
     apt-get update -q -y; \
-    apt-get install -q -y software-properties-common; \
+    apt-get install -q -y --no-install-recommends software-properties-common; \
     add-apt-repository -y ppa:jonathonf/texlive-2018; \
     apt-get update -q -y;                          \
     apt-get install -q -y --no-install-recommends  \
