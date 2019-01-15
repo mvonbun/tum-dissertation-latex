@@ -11,11 +11,9 @@ LABEL org.label-schema.build-date=$BUILD_DATE                                   
       org.label-schema.schema-version="1.1"
 
 RUN set -x;                                         \
-    { echo "# add texlive 2018 package repository"; \
-      echo "deb http://ppa.launchpad.net/jonathonf/texlive-2018/ubuntu xenial main";     \
-      echo "deb-src http://ppa.launchpad.net/jonathonf/texlive-2018/ubuntu xenial main"; \
-    }  >> /etc/apt/source.list;                    \
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4AB0F789CBA31744CC7DA76A8CF63AD3F06FC659; \
+    apt-get update -q -y; \
+    apt-get install -q -y software-properties-common; \
+    add-apt-repository -y ppa:jonathonf/texlive-2018; \
     apt-get update -q -y;                          \
     apt-get install -q -y --no-install-recommends  \
         build-essential                            \
